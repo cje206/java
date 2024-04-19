@@ -1,0 +1,15 @@
+package java_first;
+
+public class Practice5 {
+	
+	public double area(int a) {
+		return a * a;
+	}
+
+	public static void main(String[] args) {
+		Practice5 calc = new Practice5();
+		System.out.printf("반지름이 %d인 원의 넓이: %f", 5, calc.area(5));
+
+	}
+
+}

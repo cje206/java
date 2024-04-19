@@ -1,0 +1,17 @@
+package java_first;
+
+import java.util.Scanner;
+
+public class Practice4 {
+
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		
+		System.out.println("숫자 두 개를 입력하세요");
+		double num1 = scan.nextInt();
+		double num2 = scan.nextInt();
+		
+		System.out.printf("덧셉 결과 : %f", num1 + num2)
+	}
+
+}

@@ -1,0 +1,25 @@
+package java_first;
+
+public class Practice5 {
+	
+	public double area(int a) {
+		return a * a * Math.PI;
+	}
+	
+	public double area(int a, int b, boolean isRectangle) {
+		if(isRectangle = true) {
+			return a * b;
+		} else {
+			return a * b / 2;
+		}
+	}
+	
+	public static void main(String[] args) {
+		Practice5 calc = new Practice5();
+		System.out.printf("반지름이 5인 원의 넓이: %f", calc.area(5));
+		System.out.printf("가로 4, 세로 7인 직사각형의 넓이: %f", calc.area(4, 7, true));
+		System.out.printf("밑변 6, 높이 3인 삼각형의 넓이: %f", calc.area(6, 3, false));
+
+	}
+
+}

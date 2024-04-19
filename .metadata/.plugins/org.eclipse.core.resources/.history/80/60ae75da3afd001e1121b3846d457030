@@ -1,0 +1,37 @@
+package java_first;
+
+import java.util.Scanner;
+
+public class Practice4 {
+	public double add(double a, double b) {
+		return a + b;
+	}
+
+	public double diff(double a, double b) {
+		return a - b;
+	}
+
+	public double divi(double a, double b) {
+		return a / b;
+	}
+
+	public double multi(double a, double b) {
+		return a + b;
+	}
+
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		
+		System.out.println("숫자 두 개를 입력하세요");
+		double num1 = scan.nextDouble();
+		double num2 = scan.nextDouble();
+
+		System.out.printf("덧셈 결과 : %.1f", ).println();
+		System.out.printf("뺄셈 결과 : %.1f", num1 - num2).println();
+		System.out.printf("나눗셈 결과 : %f", num1 / num2).println();
+		System.out.printf("곱셈 결과 : %.1f", num1 * num2).println();
+		
+		scan.close();
+	}
+
+}
