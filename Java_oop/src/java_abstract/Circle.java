@@ -1,9 +1,9 @@
 package java_abstract;
 
 public class Circle extends Shape {
-	private int radius;
+	private double radius;
 	
-	public Circle(String color, int radius) {
+	public Circle(String color, double radius) {
 		super("Circle", color);
 		this.radius = radius;
 	}

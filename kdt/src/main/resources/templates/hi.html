@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>템플릿</h1>
+    <h3>text 예시</h3>
+    <p th:text="'안녕하세요. ' + ${msg}">안녕 반가워</p>
+    <br>
+    <h3>utext 예시</h3>
+    <p th:utext="${uText}"></p>
+    <br>
+    <h3>th:value 예시</h3>
+    <input type="text" th:value="${value}">
+    <br>
+    <h3>th:with 예시</h3>
+    <div th:with="temp=${with}" th:text="${temp}"></div>
+    <br>
+    <h3>th:href 예시</h3>
+    <a th:href="@{https://www.naver.com}">네이버</a>
+    <a th:href="@{/}">링크1</a>
+    <a th:href="@{/{id}(id=${link})}">링크2</a>
+    <br>
+    <h3>th:src 예시</h3>
+    <img th:src="${img}" alt="이미지">
+    <br>
+    <h3>th:switch 예시</h3>
+    <div th:switch="${userRole}">
+        <p th:case="'admin'">hello, Admin</p>
+        <p th:case="'user'">hello, User</p>
+        <p th:case="*">hello, Unknown</p>
+    </div>
+    <br>
+    <h3>th:if, th:unless 예시</h3>
+    <p th:if="${isAdmin}">Welcome, Admin</p>
+    <p th:unless="${isAdmin}">Welcome, User</p>
+    <br>
+    <h3>th:each 예시</h3>
+    <ul>
+        <li th:each="name:${names}" th:text="${name}">이름</li>
+    </ul>
+    <br>
+    <h3>클래스 예시</h3>
+    <div th:text="${classHello.age}">나이</div>
+    <br>
+    <h3>실습 1</h3>
+    <p th:if="${age}<20" th:text="${age}+'세는 미성년자입니다.'"></p>
+    <p th:usless="${age}<20" th:text="${age}+'세는 성인입니다.'"></p>
+
+    <br>
+    <h3>실습2</h3>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>이름</th>
+                <th>나이</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="person:${people}">
+                <td th:text="${person.name}"></td>
+                <td th:text="${person.age}"></td>
+            </tr>
+        </tbody>
+    </table>
+
+</body>
+</html>
