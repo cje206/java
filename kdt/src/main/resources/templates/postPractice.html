@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8" xmlns:th="http://www.thymeleaf.org">
     <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </head>
 <body>
     <div>폼 전송 - 실습</div>
-    <form action="/postForm" method="post">
+    <form action="/postForm" method="post" id="practice9Form">
         <fieldset>
             이름 <input type="text" id="name" name="name" /><br>
             성별 <input type="radio" name="gender" value="남자" id="male" />
@@ -32,7 +33,22 @@
             <input type="checkbox" name="interest" id="food" value="음식">
             <label for="food">음식</label>
         </fieldset>
-        <button type="submit">회원가입</button>
+<!--        <button type="submit">회원가입</button>-->
+        <button type="button" onclick="signupFunc()">회원가입</button>
     </form>
+
+    <script>
+        function signupFunc() {
+            var form = document.getElementById('practice9Form');
+            axios
+                .post('/axios/practice9', {
+                    name: form.name.value,
+                    gender: form.gender.value,
+                    birth: `${form.year.value}년 ${form.month.value}월 ${form.date.value}일`,
+                    interest: form.interest.value,
+                })
+                .then((res) => console.log(res.data));
+        }
+    </script>
 </body>
 </html>

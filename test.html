@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Title</title>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    </head>
+    <body>
+        <div>폼 전송 - 실습</div>
+        <form action="/postForm" method="post" id="practice9Form">
+            <fieldset>
+                이름 <input type="text" id="name" name="name" /><br />
+                성별 <input type="radio" name="gender" value="남자" id="male" />
+                <label for="male">남자</label>
+                <input type="radio" name="gender" value="여자" id="female" />
+                <label for="female">여자</label><br />
+                생년월일
+                <select name="year" id="year">
+                    <option
+                        th:each="i : ${#numbers.sequence(1950, 2024)}"
+                        th:text="${i}"
+                        th:value="${i}"
+                    ></option></select
+                >년
+                <select name="month" id="month">
+                    <option
+                        th:each="i : ${#numbers.sequence(1, 12)}"
+                        th:text="${i}"
+                        th:value="${i}"
+                    ></option></select
+                >월
+                <select name="date" id="date">
+                    <option
+                        th:each="i : ${#numbers.sequence(1, 31)}"
+                        th:text="${i}"
+                        th:value="${i}"
+                    ></option></select
+                >일
+                <br />
+                관심사
+                <input type="checkbox" name="interest" id="trip" value="여행" />
+                <label for="trip">여행</label>
+                <input
+                    type="checkbox"
+                    name="interest"
+                    id="fashion"
+                    value="패션"
+                />
+                <label for="fashion">패션</label>
+                <input type="checkbox" name="interest" id="food" value="음식" />
+                <label for="food">음식</label>
+            </fieldset>
+            <button type="button" onclick="signupFunc()">회원가입</button>
+        </form>
+
+        <script>
+            function signupFunc() {
+                var form = document.getElementById('practice9Form');
+                console.log(form.interest.value);
+            }
+        </script>
+    </body>
+</html>

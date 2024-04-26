@@ -24,8 +24,8 @@ public class ObjectController {
 //        model.addAttribute("age", noDto.getAge());
 
 //        DTO를 사용
-        UserDto user = new UserDto("성춘향", "xyz@exam.com", 19);
-        model.addAttribute("user", user);
+//        UserDto user = new UserDto("성춘향", "xyz@exam.com", 19);
+//        model.addAttribute("user", user);
         return "user";
     }
 

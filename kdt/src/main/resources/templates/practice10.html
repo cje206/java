@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    <h3>회원가입</h3>
+    <form id="signupForm">
+        <input type="text" name="name" placeholder="이름" /><br />
+        <input type="text" name="userId" placeholder="아이디" /><br />
+        <input type="password" name="pw" placeholder="비밀번호" /><br />
+        <button type="button" onclick="signupFunc() ">회원가입</button>
+    </form>
+    <h3>로그인/회원 정보 수정/탈퇴</h3>
+    <form id="loginForm">
+        <input type="text" name="userId" placeholder="아이디" /><br />
+        <input type="password" name="pw" placeholder="비밀번호" /><br />
+        <button type="button" onclick="loginFunc() ">로그인</button>
+        <button type="button" onclick="editFunc() ">회원 정보 수정</button>
+        <button type="button" onclick="deleteFunc() ">탈퇴</button>
+    </form>
+    <script>
+        function signupFunc() {
+            var form = document.getElementById('signupForm');
+            axios
+                .post('/practice10/signup', {
+                    name: form.name.value,
+                    userId: form.userId.value,
+                    pw: form.pw.value,
+                })
+                .then((res) => alert(res.data));
+        }
+
+        function loginFunc() {
+            var form = document.getElementById('loginForm');
+            axios
+                .get(`/practice10/login?userId=${form.userId.value}&pw=${form.pw.value}`)
+                .then((res) => alert(res.data));
+        }
+
+        function editFunc() {
+            var form = document.getElementById('loginForm');
+            axios
+                .patch('/practice10/user', {
+                    userId: form.userId.value,
+                    pw: form.pw.value,
+                })
+                .then((res) => alert(res.data));
+        }
+
+        function deleteFunc() {
+            var form = document.getElementById('loginForm');
+            axios
+                .delete('/practice10/user', {
+                    data: { userId: form.userId.value, pw: form.pw.value },
+                })
+                .then((res) => alert(res.data));
+        }
+    </script>
+</body>
+</html>
